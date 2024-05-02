@@ -17,11 +17,11 @@ steps:
   - type: Command
     name: "install cyclonedx-gomod"
     command: |
-      GOBIN=$(pwd) go install github.com/CycloneDX/cyclonedx-gomod@v0.9.0
+      GOBIN=$(pwd) go install github.com/CycloneDX/cyclonedx-gomod@v0.8.3
   - type: Command
     name: "run cyclonedx-gomod"
     command: |
-      ./cyclonedx-gomod -json -output artifactSBOM.json
+      ./cyclonedx-gomod -licenses -std -output artifactSBOM.json -json
 outputArtifacts:
   - name: artifactSBOM
     type: BINARY
