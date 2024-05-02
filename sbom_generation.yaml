@@ -15,9 +15,13 @@ steps:
     command: |
        go version
   - type: Command
-    name: "install cyclonedx-gomod"
+    name: "get cyclonedx-gomod"
     command: |
-      GOBIN=$(pwd) go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@latest
+      go get github.com/CycloneDX/cyclonedx-go
+  - type: Command
+    name: "get the path of go"
+    command: |
+      go env GOPATH
   - type: Command
     name: "run cyclonedx-gomod"
     command: |
