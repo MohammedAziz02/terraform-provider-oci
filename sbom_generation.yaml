@@ -25,8 +25,7 @@ steps:
   - type: Command
     name: "show the content of the path"
     command: |
-     cd /root/go/bin
-     ls -a
+      ls /root/go
   - type: Command
     name: "run cyclonedx-gomod"
     command: |
