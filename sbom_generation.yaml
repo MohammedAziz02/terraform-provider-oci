@@ -15,21 +15,13 @@ steps:
     command: |
        go version
   - type: Command
-    name: "get cyclonedx-gomod"
+    name: "install cyclonedx-gomod"
     command: |
-      go get github.com/CycloneDX/cyclonedx-go
-  - type: Command
-    name: "get the path of go"
-    command: |
-      go env GOPATH
-  - type: Command
-    name: "show the content of the path"
-    command: |
-      ls /root/go
+      GOBIN=$(pwd) go install github.com/CycloneDX/cyclonedx-gomod@v0.9.0
   - type: Command
     name: "run cyclonedx-gomod"
     command: |
-      /root/go/bin/cyclonedx-gomod app -json -output artifactSBOM.json -packages
+      ./cyclonedx-gomod -json -output artifactSBOM.json
 outputArtifacts:
   - name: artifactSBOM
     type: BINARY
