@@ -23,9 +23,14 @@ steps:
     command: |
       go env GOPATH
   - type: Command
+    name: "show the content of the path"
+    command: |
+     cd /root/go/bin
+     ls -a
+  - type: Command
     name: "run cyclonedx-gomod"
     command: |
-      ./cyclonedx-gomod app -json -output artifactSBOM.json -packages
+      /root/go/bin/cyclonedx-gomod app -json -output artifactSBOM.json -packages
 outputArtifacts:
   - name: artifactSBOM
     type: BINARY
