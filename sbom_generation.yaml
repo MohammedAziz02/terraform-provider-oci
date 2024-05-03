@@ -15,13 +15,13 @@ steps:
     command: |
        go version
   - type: Command
-    name: "install cyclonedx-gomod"
+    name: "install cdxgen"
     command: |
-      GOBIN=$(pwd) go install github.com/CycloneDX/cyclonedx-gomod@v0.8.3
+      npm install -g @cyclonedx/cdxgen
   - type: Command
     name: "run cyclonedx-gomod"
     command: |
-      ./cyclonedx-gomod -licenses -std -output artifactSBOM.json -json
+      cdxgen -t golang -o artifactSBOM.json --spec-version 1.4
 outputArtifacts:
   - name: artifactSBOM
     type: BINARY
